@@ -1,0 +1,344 @@
+<html>
+<head>
+	<title></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<style type="text/css">
+
+	.thumb {
+		width:200px; 
+		height:100px;	
+		overflow: auto;
+		float: left;
+		margin: 2px;
+	}
+
+	.circleDiv {
+		width:28px; 
+		height: 28px; 
+		background-color: white; 
+		border-radius: 14px;	
+		margin: 0 auto;
+		top: 35px;
+		position: relative;
+	}
+
+	.favicon {
+		margin-left: 6px; 
+		margin-top: 6px;	
+	}
+
+	.content {
+		margin: 0 auto;
+		width: 612px;
+	}
+
+	</style>
+</head>
+<body>
+
+<div class="content">
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Ycombinator -->
+			<img class="favicon"  id="favicon-8" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAElBMVEX/ZgD////2ii35sXP/48r4oVep4xaPAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAAASAAAAEgARslrPgAAADBJREFUCNdjYMAHBBUYBMEMQwNmYTCD0YFFAMxgFTYMgChyFIGqNhSGMhgFCDNwAADXUwKF5RQ5mwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0xMS0wN1QwNDoxMzoyMiswNDowMKuNWnIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTItMTEtMDdUMDQ6MTM6MjIrMDQ6MDDa0OLOAAAAAElFTkSuQmCC">
+		</div>
+	</div>
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Getprismatic -->
+			<img class="favicon"  id="favicon-7" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAAEgAAABIAEbJaz4AAAD8SURBVCjPhdAxSkNBFIXhL3mQKpVgk0C0CBJURJi0NqmEuAJtXICVrkAQrExj4wa0SetbQcTKAREUwWAX0tmYKiDYvJe8qOBfDDP3zL2HeygQluZnTrkg1w1CJVQMQnNeTebX2pWOT5sO1cb9vFqa9W97kBiiiZ1499PiUoKeXvZanBD2XePFFp6s4yDezD6EijcN7MWU0HWLkVac5BbHGkhjCjGVou4omxDqXlVNbcRhZtj0rGKiFUdlnKuil8vEoR6qTill631YiZNCaFXvln1pJ7W+VZzE+2LA42ltoqtsrVQIaZEv7fiYb3HxSyZxliUZujr+oht2/c83GL5ABOno3p4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMTEtMDdUMDA6MzM6NDArMDQ6MDBiqJGLAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEyLTExLTA3VDAwOjMzOjQwKzA0OjAwE/UpNwAAAABJRU5ErkJggg==">
+		</div>
+	</div>
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Twitter -->
+			<img class="favicon"  id="favicon-6" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABvFBMVEUAAAAAcJoASGMAX4MBgrQAhLcBfa4BiL4DmNMBqO0UqulNt+RJrNcbrOxRrdZOvu980fU9t+////8AALDc8PkAJs/q9/0AbpcAc54AcZsDfq0CgbIBgrQBgbIAjMIAkssAkckAib0AfKwCh7sJirsHk8oDls8BjMQAa5cBf7EAlc8Ao+MAoOAAmNQOndUalcUIpeQDp+gAnt0AjcYAfa8AX4UGlc4ApeYQpuI1ptI5t+kOre0AouQAltMAi8MAg7kJl9EBqOsDqu04vfL///8Wi7sRn9oCqOwAouUAnN0Bnd8Ap+wAqO0BqO0fpt4KouIIqOsZq+j//+wps+4IqO0ApewRqeuly9ttt9gYot4Bo+oGpewnsOyatL8gqeUGpOsBo+sZq+19zvGn5Ps7s+oPpOgUqOxUv/ALgLcCfrkAfrsFiccEmd4Foeseq+1hxPJGpdIqndQSm9wHnuUEoOoGoeoKo+saqew9tu+M0/XV8f2H1PhbwvNBt+8+tu9Mu/BxyfOj3PcAqOoAqOkAqu4Aqu0Aqe0AqO0Ap+wApeoApuwAp+0ApewApOwApOsAousAoesBoesAn+oAn+skm7SQAAAAgnRSTlMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEJBwIXBRRvq6RZHkIVE6BZBQqW+vPcujsd3O2BHwI36sg6DrH70YdOePfuSwIPnfn+9PL+4hsVwcwUAWPo/pUEEan960QDefP+lgkNaNa6IiZNZKLt9aYrJIHL8ffz5bdmFgglRWJlUzUWQvfuXwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAAAEgAAABIAEbJaz4AAADUSURBVBjTY2DABRjFJSSZmIEMKWkZFiDFKisnr6CopKzCoKqmrsHGwK6ppd3UrKOrp89gYGhkbGLKYWbeAgStFpYMVtZtNrZ29g6ObUDg5OzC4Orm3t7h4enl3Q4EPr6cDH7+nV1dHd3dXSAQEMjFEBQcEtoDA2Hh3Aw8EZFRvRDQFx3Dy8DAFxsX3w8BCYlJ/EAnCSSnpE4AgYlp6YJCDAwZmVnZOZMmT5qUm5cvLAJUUFBYVFxSUlpWXlEpKgTylFBVdU1tXX1Do4sY3KNCIADjAADFSkQwSu8TeQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0xMS0wN1QwMzo0MjozMCswNDowMBNeiuEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTItMTEtMDdUMDM6NDI6MzArMDQ6MDBiAzJdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAABJRU5ErkJggg==">
+		</div>
+	</div>
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Bash -->
+			<img class="favicon"  id="favicon-5" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGFBMVEUAAAD///9bUkopKio6Q0vr6eiSkI+7w8kAwWSdAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAAASAAAAEgARslrPgAAAD9JREFUCNdjYIABRkEwEAAylB2hjGBDKEMIwQiEMsyMEyEM9iB2mBoWGEMZxlCAMUygisWgipNUCsEMqKUwAADCpwnh69uR1AAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wOC0xNVQyMzo0NDoxOSswNDowMJOxNB4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTItMDgtMTVUMjM6NDQ6MTkrMDQ6MDDi7IyiAAAAAElFTkSuQmCC">
+		</div>
+	</div>
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Mongodb -->
+			<img class="favicon"  id="favicon-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAABmJLR0QA/wD/AP+gvaeTAAABbElEQVRIx+2SzW4TQRCEv/b4B4MTsihg4MKPxClCCCkXHgHxBDwD78WFF+ESkBCcuUTACeEQNrFnuiuHBYOza4g4u1allXo0pZrqsv17uwLAjP9BrzVRQwnGdyrs/vZy1sVet64xuD3h1ot9Fk9vEtWwcdjiOoFkjJ4/oIwMjRP1syn0rXUfrFsgHlf49SELz0hQrg2YP7oKGGDNZz2MNQ7qh9tkLyzCCQlJnO5N0EpW6g5RyainQ+bhZC+ERAjKpI9Xgz9zRl0CPu6RkxqBcCKEvFlLbKWW2347AChy5hFkL41V6edPS+u/dt5ykE4c+57J4czDcQkXeIj0rfy7SCa48uGYrGgEPJBE+ppJR2Xl/azbws7rGfqRWSgId5CYHMwuWGUg1c6NV58pp4VKYy6/PeLSx3qZx292CTRdYXR4wvTlJ5582WXrYLacn2f/fDFWOnF4jN0tWMfZX5+wFIjg/Zt3bLDBBhtcBGeEv8jcaPzUPQAAAABJRU5ErkJggg==">
+		</div>
+	</div>
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Habrahabr -->
+			<img class="favicon"  id="favicon-3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAACVBMVEUAAAB/oLD///8U/KHKAAAAAXRSTlMAQObYZgAAAAFiS0dEAmYLfGQAAAAJcEhZcwAAAEgAAABIAEbJaz4AAAAeSURBVAjXY2CAA9HQ0BAosTILhVi1CoVAkwUTML0AtpwT6C6EKjoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMTEtMDdUMDI6MDE6MDQrMDQ6MDDv5rgVAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEyLTExLTA3VDAyOjAxOjA0KzA0OjAwnrsAqQAAAABJRU5ErkJggg==">
+		</div>
+	</div>	
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Lostfilm -->
+			<img class="favicon"  id="favicon-2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGFBMVEUAAAAAoMQAoMQAoMT4TgX4TgX4TgUAoMTA2hqPAAAABnRSTlMA8+Iw2NNvFI1GAAAACXBIWXMAAABIAAAASABGyWs+AAAAMklEQVQI12NgwA3YEhgYGMvLC8AMdRij3AAqVQ5TUw6XgjMYkNWwpKUlgBkMYTAGTgAASkEPBfAPeqQAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMTEtMDZUMjE6Mzg6MTMrMDQ6MDBx0PI8AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEyLTExLTA2VDIxOjM4OjEzKzA0OjAwAI1KgAAAAABJRU5ErkJggg==">
+		</div>
+	</div>	
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Stackoverflow -->
+			<img class="favicon"  id="favicon-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAA8FBMVEUAAADkZC7kZizkZizkZizkYy7kZizkZizkYy7kZSzkZizrlQbrlQbrlgXkZC3kZS3kZiztlgTrlQbrlQbrlgbrmATkZyvkZC7kZizkZizhkQ/ulwLulwPslgXrlQbrmATpjA3lbSfkYy/kZC7okwnulwPulgPrlwTqkQnmeB3pciCveD+seEKqdkSqdkSzezvZjBjokwnvlwPymQCweD2rd0KpdkWrd0OzezvFgyrcjRWjeEuxeDyweD6weD6weD6pd0SbeFSgeE+keEqqeESieEzkZizrlQbslQXulwKteEGweD6veD+td0GrdkJtbGxhUbURAAAARnRSTlMAApPABwKtoQ/Le2x+FSLlWAnV6XwXNvj4RAIkhvPrgxBM/IEZgu3sgk4CCXNRKwgMcuIbKuzAhVRSWQ9ShLnePhQ8ZJEZTe4frAAAAAlwSFlzAAAASAAAAEgARslrPgAAAItJREFUGNNjYIAARiY3ZhYGZMDK5saOIsDAwenGBedw8/AyMPDxuwlA+YJC7sIiogxi4hKSEAEpaRlZdzl5BUUlZbgmFVU1D3UNTS0wR1tHV0+fwcDQyNMYImvi5eVlamZuYWkFVW5tY2tn7+3j6+cA5vr7gylHJ2cXVzAbSPhDAQNOATiACiADTAEAKLQgO4mLjM8AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMTEtMDdUMDU6NTQ6NDIrMDQ6MDDiceKLAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEyLTExLTA3VDA1OjU0OjQyKzA0OjAwkyxaNwAAAABJRU5ErkJggg==">
+		</div>
+	</div>	
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Firefox -->
+			<img class="favicon"  id="favicon-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAABmJLR0QA/wD/AP+gvaeTAAADNUlEQVRIx+3T3W9TdRzH8ffv9zvtOYd2tLRuZcvSlvmwiWAWBc1cUDEiBMKFIVlmmFei+HDhU2LGLjDxgu3CW7zg0guDRg0xYqKgITzp4obAxioZOltxltmtXdu1p+158GKMoH/DXpff5PP5XnzzFZ7nMWKoz4HhQcsZD3fu2dJVyb4ccGpPjjclWlg2AZwBvgbGAArXTwIgbhd4AN9ENx1Z8AX6B7KjHQD7LQcB9O3/kMEXy9z49Ef37C+V0ztylz4o5awLAHLEUAMAB4bC7J6fHBrIjnYcGAoDkK5Bpuxw+OibvHvMZOcrSfnW895zTiB4OvlYpA9ACsHTkagCYF9/hETCx4rzIcU7YT/XijX6Du7mmfeTdOzt4tn3HjJKJXls457m9VJJ8eiG+331SsbGLVTZ0tN0p2xff4SEhCIa+fh9eLqfTy6GST4RIxo3Q+VbjUPSp4u2tnblb1RdAsnl7dXFGPfseokvji/gnSpw5dI8k2f/wEUxdaPO4qJN544oSzlru+Z5rA2EJZoUVEqS4LZ7AdB8UwDMTmfJT6UozWaxXY3xlMSUDrGEwVLe6dJqlqtjg9EqOfddicb3Y8xmPQCO7PyIxsefITwHU7pULUEsWSG8doF8pYJVtDWp+0S5tOiBgEhM0dzk0toqARj69nW+7PmBw1vTFOdy1It5nmrPQH6B8q+3MIOioim4+nem0du0TvHARoM/J2w2JzQe3moQMGxG0//AiTPY7a8SNzMc7E5Ry9a5eT6PEu6EZjve8emJ+iOhqGa2xA3aN0ew6w7jPy2R/q0OXONQ4AV611zntV3zRFWNwnSBqZ8V/nDklBjWZdBUnNOE6N7e34ShaziOhjQUM3k/uaLFGrFEvKVBMqlTRSN1sczvabO4Pt7cKYZ1SQMeNyVfmVK0bOoxibUpNCVRykOXNo4jsAEjCumMx+TlmpWbcbYBY2JYlwxaDiOG6tYVJz1oiwYlHZ1+QhGBZgI+wdzNBum/BF7VrmTn3F7g8p1nWnE0qG1wBW+7nrfXkSLp2MvXMXTBupC0nIZ3olzwht4o2zMrmf8U3F0EPAi03R7NAqm7g6tWrVr1f/8CuxxPfYp9Tg0AAAAASUVORK5CYII=">
+		</div>
+	</div>	
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Yandex -->
+			<img class="favicon"  id="favicon-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEX////+/v79/f37+/vQ0NDLy8vHx8fExMTBwcEAAAAAAAAAAAAAAAAAAAD39/e1tbUAAAAAAAD5+fk+Pj4AAAAAAADc3NwAAAAAAACTk5MAAAAAAADw8PAXFxcAAAAAAADIyMgAAAAAAADv7+8AAAAAAADg4OAAAAAAAACoqKgAAAAAAADJyckPDw8AAAAAAABlZWUAAACkpKQAAAAAAAC+vr4eHh4AAAAAAAC6urpubm4AAAAAAAAAAAD////+/v79/f39+Pb+pIz/d1P/aUH/c077+/v9o5H+blD8yb/9rZz/Y0P5+fn+VD77sqj7uK//TDT29vb/LB35t7L5raj+MyXx8fH8OjX5b2z2op/+HRji4uLqqKj+Cwv2QkL3Ojr9DQ3Z2dnlhYX2CgrvODj1DQ3U1NTWxcXqFBTfcHDciYnrDAzQ0NDZTk7dHR3Qy8vVh4feDAzLy8vNlJTUAADOj4/Og4PTDAzHx8fExMR+kSbCAAAAPnRSTlMAAAAAAAAAAAAVKC4bKeJyFzLpPgk1rB84Zxk840EGQKMkRPtCSPtGS6YqT+RTB1N7V7ozWu5kEFHqkC0sXx3+2W0AAAABYktHRACIBR1IAAAACXBIWXMAAABIAAAASABGyWs+AAAA1klEQVQY02Pg5OKGAR4GEODls4MBfgGQgKA9HAgJizAyMog6ODg4Ojm7uAJpMXEmJgYJNzc3dw9PL28g7SYpxcwg7ePj4+vn4x8ApH1kZOUY5AMDA4OCA0NCA0FAQZFBKSwsLDwiLDIqDASUVRhUo6OjY2Lj4hOiQUBNnUEjEQiSklNSQXSiphaDdlpaWnpGZlY2kE7T0dVj0M/JycnNyy8oBNI5BoosDIZFRcUlpUVl5UVFRUbGrKwMJhVwYGpmzsbGYGFZCQNW1uzs7Aw2+rYwIMEBBAC56EK0JsJX8AAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0xMS0wN1QwNDoxMDo1MSswNDowMHuX8vUAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTItMTEtMDdUMDQ6MTA6NTErMDQ6MDAKykpJAAAAAElFTkSuQmCC">
+		</div>
+	</div>
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Google -->
+			<img class="favicon"  id="favicon-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAw1BMVEVChfRChfRChfRChfRChfRChfREhvSUuvmWu/nQ4fz9/v+vy/p3p/epyPqXvPnV5P2/1vvy9v6FsPiJs/j4+//w9f6zzvtxpPfg6/2RuPn5+/95qPdPjfWyzftqn/ZpnvaSufn+//9Gh/Tx9v7T4vxRj/V6qfeqyPqWvPmgwvnu9P7j7f1WkvWbvvnM3vxHiPRXkvXh7P20z/vl7v260/vC2PtZlPVGiPTH2/xuovdOjfWryPrn7/7X5f291Pu1z/tuofeZpuCrAAAABXRSTlNJ5udK5GXAZaYAAAAJcEhZcwAAAEgAAABIAEbJaz4AAACHSURBVBjTY2BgZEUCjAyofJAImGJj5+Dk4uYBMSECvHysbPwCrAgBQSFWVmERJAFRMVZWcQkkAUkpaRlZOSQBVnkFRSFWZAFWJWUVVSQBNXUNTS1tHbiArp4+K6uBoRFcwJgDRLKbwAVMDc1YWc0tLOECVtY2tnb2DhBD0TzHxMDMhMxnYQYAVEAMAZcXhAMAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTItMTEtMDdUMDI6MjQ6MjMrMDQ6MDDWIfNjAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDEyLTExLTA3VDAyOjI0OjIzKzA0OjAwp3xL3wAAAABJRU5ErkJggg==">
+		</div>
+	</div>
+
+	<div class="thumb">
+		<div class="circleDiv">
+			<!-- Dr.web -->
+			<img class="favicon"  id="favicon-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAABmJLR0QA/wD/AP+gvaeTAAAB3klEQVRIx+2TIXAbMRBFXzIBt0xiMhS0mY8l0DDQYS00TFjLGhiYssCGmgWm8GDMfMyGC++YxCSWAl199Uyn006pP9Fod/W1X3915px55z9wAbD4OoGUQap/Wpv7wPmBSir0NdCuE7EbioY4QFRonwJROYqPBCljayHsMsPRQpQyAEEToc8Y/xsJcVeKjId6Zem2ib4NpFCK7KzCOFh8sQDoW8B6GQmCJrTJWF/hbwQUKlMxXQohJvR7xl9btE3ERgghM/lcCM6cM++LB0uMQIDJzJFSj41zTJgS6al8oKMtsmLpyhho7kPpQJtEbAWzSOSdwmbGw7dHcoxUxpBj5Ob2mvlK0JdUCOpf30DBL8HMLO1zIOy2NE2DquK9p2037Dc9pnZc3Xl2r0oe3DgHmK+KnvY54C+Fvo+s12u898QYaZoG5wzWCG9Piq2F6VKObdyuA2FwY37t6DpFpBTt90q9ssVKzXRNQsSNBCLuYFHQxPSjBZPouo69brm8dRhfpFprmS6FRBwJUuoRcdQri26GLu4s+8kLab5hduUH8sz80ziFowSpSMQySB9smUAotww5bRP1yo6Hhwm9OGykAqkwPnMUG2C9YCbj/mfu7E/fOcdMZSpOOOGEE/4GPwBLku9rSlsl6wAAAABJRU5ErkJggg==">
+		</div>
+	</div>
+</div>
+	<script type="text/javascript">
+
+		$(".favicon").each( 
+			function() { 
+				$(this).on("load", magic); 
+			}
+		);
+
+		function magic() {
+			var imgWidth  = 18;
+			var imgHeight = 18;
+
+			var canvas = document.createElement('canvas');
+			var ctx = canvas.getContext('2d');
+
+			// Draw white Rect to avoid problems with favicon opacity
+			ctx.fillStyle = 'rgb(255, 255, 255)';
+			ctx.fillRect(0, 0, imgWidth, imgHeight);
+
+			ctx.drawImage( this, 0, 0, imgWidth, imgHeight);
+			try {
+		        var data = ctx.getImageData(0, 0, imgWidth, imgHeight);
+		    }
+		    catch(e) {
+		        // security error, img on diff domain
+		        console.log("Cross-domain error");
+		        return;
+		    }
+
+		    //var rgb = avg( data );
+		    //var rgb = euclideanDistance( data );
+		    var rgb = kClusters( data );
+
+		    var colorString = String("rgb(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ")");
+	    	$(this).parent().parent().css("background-color", colorString);
+	    	
+		}
+
+		function avg( data ) {
+			var rgb = { r : 0, g : 0, b : 0 };
+		    var count = 0;
+		    for ( i = 0; i<data.data.length; i=i+4 ) {
+		    	// Ignore white color. Suppose we hate it.
+		    	if ( data.data[i]     == 255 && 
+		    	     data.data[i + 1] == 255 && 
+		    		 data.data[i + 2] == 255 ) {
+		    		continue;
+		    	}	
+
+		    	rgb.r += data.data[i];
+		    	rgb.g += data.data[i + 1];
+		    	rgb.b += data.data[i + 2];		    	
+
+		    	count += 1;
+		    }
+
+		    rgb.r = ~~(rgb.r/count);
+	    	rgb.g = ~~(rgb.g/count);
+	    	rgb.b = ~~(rgb.b/count);
+
+	    	return rgb;
+		}
+
+		function euclideanDistance( data ) {
+			var rgb = { r : 0, g : 0, b : 0 };
+		    var distances = Array();
+		    for ( var i = 0; i < data.data.length; i=i+4 ) {
+
+		    	// Ignore white color. Suppose we hate it.
+		    	if ( data.data[i]     == 255 && 
+		    	     data.data[i + 1] == 255 && 
+		    		 data.data[i + 2] == 255 ) {
+		    		continue;
+		    	}		    		
+
+		    	var dist = 0;
+		    	var count = 0;
+		    	for ( var j = 0; j < data.data.length; j=j+4 ) {
+
+		    		if ( i == j ) continue;		    		
+
+		    		// Ignore white color. Suppose we hate it.
+		    		if ( data.data[j]     == 255 && 
+		    			 data.data[j + 1] == 255 && 
+		    			 data.data[j + 2] == 255 ) 
+		    			continue;
+
+		    		var d = { r : 0, g : 0, b : 0 };
+		    		d.r = data.data[i] - data.data[j];
+		    		d.g = data.data[i + 1] - data.data[j + 1];
+		    		d.b = data.data[i + 2] - data.data[j + 2];		    		
+
+		    		dist += Math.sqrt( d.r*d.r + d.g*d.g + d.b*d.b );
+		    		count += 1;
+		    	}
+
+		    	var pixel = new Object();
+		    	pixel.p = i;
+		    	pixel.d = ~~(dist/count);				    	
+		    	distances.push( pixel ); 
+		    }
+			
+			distances.sort( function(a, b) { return a.d - b.d });
+			
+		    var topPixel = distances[0];
+		    rgb.r = data.data[ topPixel.p ];
+		    rgb.g = data.data[ topPixel.p + 1 ];
+		    rgb.b = data.data[ topPixel.p + 2 ];
+
+	    	return rgb;
+		}
+
+		function kClusters( data ) {
+			var k = 5;
+
+			var clusters = [];
+			var tmpCenters = [];
+			for(i=0; i<data.data.length; i=i+4) {
+
+				// Ignore white color. Suppose we hate it.
+		    	if ( data.data[i]     == 255 && 
+		    	     data.data[i + 1] == 255 && 
+		    		 data.data[i + 2] == 255 ) {
+		    		continue;
+		    	}
+
+				var rgb = {};
+				rgb.r = data.data[i];
+				rgb.g = data.data[i + 1];
+				rgb.b = data.data[i + 2];
+
+				// Check for dublicates pixels
+				if ( ($.grep( tmpCenters, function( e ) { return e.r == rgb.r && e.g == rgb.g && e.b == rgb.b })).length != 0 ) continue;
+
+				tmpCenters.push( rgb );
+
+				var cluster = new Object();
+				cluster.center = rgb;
+				cluster.pixels = [];
+				cluster.sum    = { r : 0, g : 0, b : 0 };
+
+				clusters.push( cluster );
+				if ( clusters.length == k ) break;
+			}	
+
+			var iters = 0;
+			var f = true;
+			while( f ) {
+				for(var i=0; i<data.data.length; i=i+4) {
+
+					if ( data.data[i]     == 255 && 
+		    	         data.data[i + 1] == 255 && 
+		    		     data.data[i + 2] == 255 ) {
+		    			continue;
+		    		}
+
+					var rgb = {};
+					rgb.r = data.data[ i ];
+				    rgb.g = data.data[ i + 1 ];
+				    rgb.b = data.data[ i + 2 ];
+
+					whichCluster = -1;
+					minDist = Number.MAX_VALUE;
+					for(var j=0; j<clusters.length; j++) {
+						//Calculate dist
+						d = {};
+			    		d.r = rgb.r - clusters[j].center.r;
+			    		d.g = rgb.g - clusters[j].center.g;
+			    		d.b = rgb.b - clusters[j].center.b;
+
+			    		dist = Math.sqrt( d.r*d.r + d.g*d.g + d.b*d.b );
+
+			    		if ( dist < minDist ) {
+			    			minDist = dist;
+			    			whichCluster = j;
+			    		}
+
+					}
+
+					// Add pixel to appropriate cluster
+					clusters[whichCluster].pixels.push( rgb );
+					// Prepare for recalculation clusters centers
+					clusters[whichCluster].sum.r += rgb.r;
+					clusters[whichCluster].sum.g += rgb.g;
+					clusters[whichCluster].sum.b += rgb.b;
+				}
+
+				//Recalculate clusters centers
+				for(var i=0; i<clusters.length; i++) {
+					// Clonning object
+					clusters[i].lastCenter = $.extend({}, clusters[i].center);
+					clusters[i].center.r   = ~~(clusters[i].sum.r / clusters[i].pixels.length);
+					clusters[i].center.g   = ~~(clusters[i].sum.g / clusters[i].pixels.length);
+					clusters[i].center.b   = ~~(clusters[i].sum.b / clusters[i].pixels.length);
+
+					if ( clusters[i].lastCenter.r == clusters[i].center.r &&
+						 clusters[i].lastCenter.g == clusters[i].center.g &&
+						 clusters[i].lastCenter.b == clusters[i].center.b ) 
+					{
+						// Stop clustering
+						f = false;
+					}
+					else {
+						f = true;
+					}
+				}
+
+				iters += 1;
+			}
+
+			clusters.sort( function(a, b) { return b.pixels.length - a.pixels.length });
+			rgb = clusters[0].center;
+
+			return rgb;
+		}
+
+	</script>
+
+
+</body>
+</html>
