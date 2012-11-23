@@ -120,16 +120,52 @@
 			<img class="favicon"  id="favicon-1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAABmJLR0QA/wD/AP+gvaeTAAAB3klEQVRIx+2TIXAbMRBFXzIBt0xiMhS0mY8l0DDQYS00TFjLGhiYssCGmgWm8GDMfMyGC++YxCSWAl199Uyn006pP9Fod/W1X3915px55z9wAbD4OoGUQap/Wpv7wPmBSir0NdCuE7EbioY4QFRonwJROYqPBCljayHsMsPRQpQyAEEToc8Y/xsJcVeKjId6Zem2ib4NpFCK7KzCOFh8sQDoW8B6GQmCJrTJWF/hbwQUKlMxXQohJvR7xl9btE3ERgghM/lcCM6cM++LB0uMQIDJzJFSj41zTJgS6al8oKMtsmLpyhho7kPpQJtEbAWzSOSdwmbGw7dHcoxUxpBj5Ob2mvlK0JdUCOpf30DBL8HMLO1zIOy2NE2DquK9p2037Dc9pnZc3Xl2r0oe3DgHmK+KnvY54C+Fvo+s12u898QYaZoG5wzWCG9Piq2F6VKObdyuA2FwY37t6DpFpBTt90q9ssVKzXRNQsSNBCLuYFHQxPSjBZPouo69brm8dRhfpFprmS6FRBwJUuoRcdQri26GLu4s+8kLab5hduUH8sz80ziFowSpSMQySB9smUAotww5bRP1yo6Hhwm9OGykAqkwPnMUG2C9YCbj/mfu7E/fOcdMZSpOOOGEE/4GPwBLku9rSlsl6wAAAABJRU5ErkJggg==">
 		</div>
 	</div>
+	<button id="btn1">Average</button>
+	<button id="btn2">avgYUV</button>
+	<button id="btn3">Euclid</button>
+	<button id="btn4">Clusters</button>
 </div>
 	<script type="text/javascript">
 
 		$(".favicon").each( 
 			function() { 
-				$(this).on("load", magic); 
+				$(this).on("load", function() { magic( this, avg ) }); 
 			}
 		);
 
-		function magic() {
+		$("#btn1").click( 
+			function() { 
+				$(".favicon").each(
+					function() { magic( this, avg ) }
+				); 
+			}
+		);
+
+		$("#btn2").click( 
+			function() { 
+				$(".favicon").each(
+					function() { magic( this, avgYUV ) }
+				); 
+			}
+		);
+
+		$("#btn3").click( 
+			function() { 
+				$(".favicon").each(
+					function() { magic( this, euclideanDistance ) }
+				); 
+			}
+		);
+
+		$("#btn4").click( 
+			function() { 
+				$(".favicon").each(
+					function() { magic( this, kClusters ) }
+				); 
+			}
+		);
+
+		function magic( th, algo ) {
 			var imgWidth  = 18;
 			var imgHeight = 18;
 
@@ -140,7 +176,7 @@
 			ctx.fillStyle = 'rgb(255, 255, 255)';
 			ctx.fillRect(0, 0, imgWidth, imgHeight);
 
-			ctx.drawImage( this, 0, 0, imgWidth, imgHeight);
+			ctx.drawImage( th, 0, 0, imgWidth, imgHeight);
 			try {
 		        var data = ctx.getImageData(0, 0, imgWidth, imgHeight);
 		    }
@@ -150,13 +186,14 @@
 		        return;
 		    }
 
+	    	var rgb = algo( data );
 		    //var rgb = avg( data );
-		    var rgb = avgYUV( data );
+		    //var rgb = avgYUV( data );
 		    //var rgb = euclideanDistance( data );
 		    //var rgb = kClusters( data );
 
 		    var colorString = String("rgb(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ")");
-	    	$(this).parent().parent().css("background-color", colorString);
+	    	$(th).parent().parent().css("background-color", colorString);
 	    	
 		}
 
